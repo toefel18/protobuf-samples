@@ -1,0 +1,42 @@
+syntax = "proto3";
+option java_outer_classname = "Search";
+option java_package = "nl.toefel.java.protobuf";
+
+message SearchRequest {
+  string query = 1;
+  int32 page_number = 2;
+  int32 result_per_page = 3;
+  float latitude = 4;
+  float longitude = 5;
+
+  enum ShipmentType {
+    UNKNOWN = 0;
+    DELIVERY = 1;
+    PICKUP = 2;
+    EXPRESSER = 3;
+    PALLET = 4;
+  }
+
+  ShipmentType shipmentType = 6;
+
+}
+
+message RE {
+  string htSerialNr = 1;
+  string routeNr = 2;
+  string activityCode = 3;
+  string ritNr = 4;
+  string driver = 5;
+  string shipmentNr = 6;
+  int64 timestamp = 7;
+  bool pickupAcceptedByDriver = 8;
+  bool pickupCancelledAcceptedByDriver = 9;
+  bool pickedUp = 10;
+  int32 loadedHalfFloorspaces = 11;
+  bool recipientNotHome = 12;
+  bool vacation = 13;
+  int64 newPickupDate = 14;
+  bool unknownAddress = 15;
+  bool unknownAddressee = 16;
+  bool noGoods = 17;
+}
